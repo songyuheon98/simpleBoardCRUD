@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions" %>   
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,32 +19,33 @@
 	<div class="container">
 		<h2>Simple Board</h2>
 		<div class="panel panel-info">
-			<div class="panel-heading">BOARD</div>
-
+			<div class="panel-heading">Simple Board</div>
 			<div class="panel-body">
-				<table class="table table-bordered table-hover">
-					<tr>
-						<td>번호</td>
-						<td>제목</td>
-						<td>작성자</td>
-						<td>작성일</td>
-						<td>조회수</td>
-					</tr>
-					<c:forEach var="vo" items="${list}">
+				<form action="simpleBoardInsert" method="post">
+					<table class="table">
 						<tr>
-							<td>${vo.id}</td>
-							<td><a href="simpleBoardContent?id=${vo.id}">${vo.title}</a></td>
-							<td>${vo.writer}</td>
-							<td>${vo.indate}</td>
-							<td>${vo.count}</td>
+							<td>제목</td>
+							<td><input type="text" name="title" class="form-control"></td>
 						</tr>
-					</c:forEach>
-				</table>
+						<tr>
+							<td>내용</td>
+							<td><textarea rows="7" class="form-control" name="content"></textarea></td>
+						</tr>
+						<tr>
+							<td>작성자</td>
+							<td><input type="text" name="writer" class="form-control"></td>
+						</tr>
+						<tr>
+							<td colspan="2" align="center">
+								<button type="submit" class="btn btn-success btn-sm">등록</button>
+								<button type="reset" class="btn btn-warning btn-sm">취소</button>
+							</td>
+						</tr>
+					</table>
+				</form>
 			</div>
-			<a href = "simpleBoardForm" class = "btn btn-primary btn-sm" >글쓰기</a>
 			<div class="panel-footer">SYH</div>
 		</div>
 	</div>
-
 </body>
 </html>

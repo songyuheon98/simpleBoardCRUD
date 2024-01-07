@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace ="com.syh.mapper.SimpleBoardMapper">
+<!-- 	
+	<select id ="getAllBoards" resultType="com.syh.entity.SimpleBoard">
+		select * from simpleBoard
+	</select>
+
+	<insert id="simpleBoardInsert" parameterType="com.syh.entity.SimpleBoard">
+		insert into simpleBoard(title,content,writer) values(#{title},#{content},#{writer})
+	</insert>
+	
+	<select id = "simpleBoardContent" parameterType="int" resultType="com.syh.entity.SimpleBoard">
+		select * from simpleBoard where id = #{id}
+	</select>
+	
+	<update id="simpleBoardCount" parameterType="int">
+		update simpleBoard set count=count+1 where id = #{id}
+	</update>
+	
+	<update id="simpleBoardUpdate" parameterType="com.syh.entity.SimpleBoard">
+		update simpleBoard set title=#{title}, content=#{content} where id = #{id}
+	</update>
+	
+	<delete id ="simpleBoardDelete" parameterType="int">
+		delete from simpleBoard where id=#{id};
+	</delete>
+	 -->
+</mapper>

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@taglib prefix="fn" uri = "http://java.sun.com/jsp/jstl/functions" %>   
+<%@taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -21,28 +21,34 @@
 		<h2>Simple Board</h2>
 		<div class="panel panel-info">
 			<div class="panel-heading">BOARD</div>
-
 			<div class="panel-body">
-				<table class="table table-bordered table-hover">
+				<table class="table">
 					<tr>
-						<td>번호</td>
 						<td>제목</td>
-						<td>작성자</td>
-						<td>작성일</td>
-						<td>조회수</td>
+						<td>${vo.title}</td>
 					</tr>
-					<c:forEach var="vo" items="${list}">
-						<tr>
-							<td>${vo.id}</td>
-							<td><a href="simpleBoardContent?id=${vo.id}">${vo.title}</a></td>
-							<td>${vo.writer}</td>
-							<td>${vo.indate}</td>
-							<td>${vo.count}</td>
-						</tr>
-					</c:forEach>
+					<tr>
+						<td>내용</td>
+						<td>${fn:replace(vo.content,newLineChar,"<br/>")}</td>
+					</tr>
+					<tr>
+						<td>작성자</td>
+						<td>${vo.writer}</td>
+					</tr>
+					<tr>
+						<td>작성일</td>
+						<td>${fn:split(vo.indate," ")[0]}</td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center">
+							<a href="simpleBoardUpdateForm/${vo.id}" class="btn btn-primary btn-sm">수정</a>
+							<a href="simpleBoardDelete/${vo.id}" class="btn btn-warning btn-sm">삭제</a>
+							<a href="home" class="btn btn-info btn-sm">목록</a>
+						</td>
+					</tr>
+
 				</table>
 			</div>
-			<a href = "simpleBoardForm" class = "btn btn-primary btn-sm" >글쓰기</a>
 			<div class="panel-footer">SYH</div>
 		</div>
 	</div>
